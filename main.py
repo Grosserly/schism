@@ -3,7 +3,7 @@ from typing import List
 import os
 import logging
 import ujson as json  # ujson is faster
-from discord import Activity, ActivityType, AllowedMentions
+from discord import Activity, ActivityType, AllowedMentions, Intents
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -11,6 +11,8 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
 prefix = os.environ.get("COMMAND_PREFIX", "|")
+intents = Intents.default()
+intents.members = True
 
 print("Initializing bot...")
 bot = commands.AutoShardedBot(
@@ -21,7 +23,8 @@ bot = commands.AutoShardedBot(
     activity=Activity(
         name=f"everyone ({prefix}help)",
         type=ActivityType.listening,
-    )
+    ),
+    intents=intents,
 )
 
 bot.admin_role_ids = json.loads(os.environ.get("ADMIN_ROLE_IDS", "[]"))
