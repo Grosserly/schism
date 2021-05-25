@@ -34,7 +34,11 @@ class Userlike(commands.Converter):
         if text in ("you", "yourself", "previous"):
             async for message in ctx.channel.history(before=ctx.message):
                 if message.author not in (ctx.bot.user, ctx.author) and message.webhook_id is None:
-                    return message.author
+                    # HACK: Re-fetch member from the guild by ID instead of
+                    # returning the message.author directly, because authors on
+                    # messages returned from channel.history() don't have
+                    # nicknames.
+                    return ctx.guild.get_member(message.author.id)
 
         # If this is not a guild, it must be a DM channel, and therefore the
         #   only person you can imitate is yourself.
