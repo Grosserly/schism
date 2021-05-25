@@ -69,7 +69,7 @@ class Text(commands.Cog):
                 allowed_mentions=AllowedMentions.none(),
             )
 
-    @commands.command(brief="Imitate someone.")
+    @commands.command(brief="Imitate someone.", usage="<user|me|you>")
     @commands.cooldown(2, 2, commands.BucketType.user)
     async def imitate(self, ctx: commands.Context, user: Userlike) -> None:
         """ Imitate a registered user. """
