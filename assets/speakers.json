@@ -292,7 +292,7 @@
     },
     {
         "name": "J. K. Simmons",
-        "aliases": ["simmons", "j k simmons", "jk simmons"],
+        "aliases": ["simmons", "j k simmons", "jk simmons", "j. k. simmons", "j.k. simmons", "jj jameson", "james jonah jameson"],
         "slug": "j-k-simmons",
         "description": "Actor",
         "avatarUrl": "j-k-simmons.jpg",
@@ -503,7 +503,7 @@
     {
         "name": "Paula Deen",
         "slug": "paula-deen",
-        "aliases": ["deen"],
+        "aliases": ["deen", "paula dean"],
         "description": "Cook",
         "avatarUrl": "paula-deen.jpg",
         "fullUrl": "paula-deen-full.png",
